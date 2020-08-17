@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace EconomicmappingAPI.Models
+namespace EconomicMappingAPI.Models
 {
   public class EconomicmappingAPIContext : DbContext
   {
-    public EconomicmappingAPIContext(DbContextOptions<EconomicmappingAPIContext> options) : base(options)
+    public EconomicMappingAPIContext(DbContextOptions<EconomicMappingAPIContext> options) : base(options)
     {
       
     }
-    public DbSet<> 
+    public DbSet<State> States { get; set; }
   }
 }
