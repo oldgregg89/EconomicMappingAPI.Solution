@@ -15,7 +15,7 @@ namespace EconomicMappingAPI.Models
     builder.Entity<State>()
       .HasData(
         new State { StateId = 1, Name= "California", GDP= 2, MainExport= "coffee", MainImport= "avocodos" },
-        new State { StateId = 2, Name= "Texas", GDP= 3, MainExport= "", MainImport= ""},
+        new State { StateId = 2, Name= "Texas", GDP= 3, MainExport= "Cowboys", MainImport= "Capitalism"},
         new State {StateId = 3, Name= "Flordia", GDP=23, MainExport= "Spring Break", MainImport= "Freshmen"},
         new State {StateId = 4, Name= "Wisconsin", GDP=2, MainExport= "COWS", MainImport= "Nothing"},
         new State {StateId = 5, Name= "Oregon", GDP=23542, MainExport= "Wine", MainImport= "California"},
@@ -51,19 +51,19 @@ namespace EconomicMappingAPI.Models
         new State {StateId = 35, Name= "New York", GDP=2, MainExport= " the Mafia", MainImport= "RICO"},
         new State {StateId = 36, Name= "North Carolina", GDP=3, MainExport= "Charlotte", MainImport= "Beer"},
         new State {StateId = 37, Name= "North Dakota", GDP=4, MainExport= "Trash", MainImport= "Flat AF"},
-        new State {StateId = 38, Name= "Ohio", GDP=5, MainExport= "string", MainImport= "string"},
-        new State {StateId = 39, Name= "Oklahoma", GDP=6, MainExport= "string", MainImport= "string"},
-        new State {StateId = 40, Name= "Pennsylvania", GDP=7, MainExport= "string", MainImport= "string"},
-        new State {StateId = 41, Name= "Rhode Island", GDP=8, MainExport= "string", MainImport= "string"},
-        new State {StateId = 42, Name= "South Carolina", GDP=9, MainExport= "string", MainImport= "string"},
-        new State {StateId = 43, Name= "South Dakota", GDP=1, MainExport= "string", MainImport= "string"},
-        new State {StateId = 44, Name= "Tennessee", GDP=2, MainExport= "string", MainImport= "string"},
-        new State {StateId = 45, Name= "Utah", GDP=3, MainExport= "string", MainImport= "string"},
-        new State {StateId = 46, Name= "Vermont", GDP=4, MainExport= "string", MainImport= "string"},
-        new State {StateId = 47, Name= "Virginia", GDP=5, MainExport= "string", MainImport= "string"},
-        new State {StateId = 48, Name= "Washington", GDP=6, MainExport= "string", MainImport= "string"},
-        new State {StateId = 49, Name= "West Virginia", GDP=7, MainExport= "string", MainImport= "string"},
-        new State {StateId = 50, Name= "Wyoming", GDP=8, MainExport= "string", MainImport= "string"}
+        new State {StateId = 38, Name= "Ohio", GDP=5, MainExport= "What even is a Buckeye?", MainImport= "Radioactive River Water"},
+        new State {StateId = 39, Name= "Oklahoma", GDP=6, MainExport= "Home, HOME ON THE RANGE", MainImport= "Where the deer and the antelope PLAY"},
+        new State {StateId = 40, Name= "Pennsylvania", GDP=7, MainExport= "Philly Cheese STEAK", MainImport= "Cheese, Steak, and Philly"},
+        new State {StateId = 41, Name= "Rhode Island", GDP=8, MainExport= "Road", MainImport= "Providence!!!!!!"},
+        new State {StateId = 42, Name= "South Carolina", GDP=9, MainExport= "Cotton", MainImport= "an uncomfortable heritage"},
+        new State {StateId = 43, Name= "South Dakota", GDP=1, MainExport= "Highway Bandits", MainImport= "Probably stolen goods"},
+        new State {StateId = 44, Name= "Tennessee", GDP=2, MainExport= "Country Music", MainImport= "Run away wives"},
+        new State {StateId = 45, Name= "Utah", GDP=3, MainExport= "Mormons", MainImport= "Nothing, they already have it"},
+        new State {StateId = 46, Name= "Vermont", GDP=4, MainExport= "BERNIE", MainImport= "FEEL THE BERN"},
+        new State {StateId = 47, Name= "Virginia", GDP=5, MainExport= "Land of lovers", MainImport= "Flowers, wine, and chocolates"},
+        new State {StateId = 48, Name= "Washington", GDP=6, MainExport= "Marijuana", MainImport= "Nothing, Please go away"},
+        new State {StateId = 49, Name= "West Virginia", GDP=7, MainExport= "Coal", MainImport= "I've got the black lung, Pa"},
+        new State {StateId = 50, Name= "Wyoming", GDP=8, MainExport= "Buffalo", MainImport= "Popcorn"}
       );
     }
   }
