@@ -39,12 +39,31 @@ namespace EconomicMappingAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<State> Get(int id)
+        [HttpGet]
+        //public IActionResult GetContacts([FromQuery] UrlQuery urlQuery)
+        public IActionResult GetStates([FromQuery] UrlQuery urlQuery)
         {
+            IEnumerable<State> state = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sql = @"SELECT StateId, Name, GDP, MainExport, MainImport";
+
+                if (urlQuery.PageNumber.HasValue)
+                {
+                    sql += @" ORDER By State.StatePK
+                        OFFSET @PageSize * (@PageNumber -1) ROWS
+                        FETCH NEXT @PageSize ROWS ONLY";
+                }
+
+                state = state.Query<State>(sql, urlQuery);
+                }
+                return Ok(States);
+            }
             
-            return _db.States.FirstOrDefault(entry => entry.StateId == id);
-        }
+        
 
         // POST api/values
         [HttpPost]
