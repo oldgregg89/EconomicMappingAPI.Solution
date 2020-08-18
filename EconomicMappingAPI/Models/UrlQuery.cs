@@ -1,18 +1,28 @@
-public class UrlQuery
-{
-    private const int maxPageSize = 20;
-    public int? PageNumber { get; set; }
+using System.ComponentModel.DataAnnotations;
 
-    private int _pageSize = 10;
-    public int PageSize
+namespace EconomicMappingAPI.Models
+{ 
+    public class UrlQuery
     {
-        get
+        private const int maxPageSize = 20;
+        public int _PageNumber { get; set; }
+        public int _PageSize { get; set; }
+        public UrlQuery(int pageNumber, int pageSize)
         {
-            return _pageSize;
+            _PageNumber = pageNumber;
+            _PageSize = pageSize;
         }
-        set
+        private int _pageSize = 10;
+        public int PageSize
         {
-            _pageSize = (value < maxPageSize) ? value : maxPageSize;
+            get
+            {
+                return _pageSize;
+            }
+            set
+            {
+                _pageSize = (value < maxPageSize) ? value : maxPageSize;
+            }
         }
     }
 }

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EconomicMappingAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Dapper;
-using MySqlConnector;
-using Microsoft.SqlServer;
-using System.Data.SqlClient;
+
 
 namespace EconomicMappingAPI.Controllers
 {
@@ -46,10 +42,10 @@ namespace EconomicMappingAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] UrlQuery urlQuery)
         {
-            var validUrlQuery = new UrlQuery(urlQuery,PageNumber, urlQuery.Pagesize);
-            var pageData = _db.States
+            var validUrlQuery = new UrlQuery(urlQuery.PageNumber, urlQuery.PageSize);
+            var pagedData = _db.States
                 .OrderBy(thing => thing.StateId)
-                .Skip((validUrlQuery.PageNumber -1) * validUrlQuery.PageSize)
+                .Skip((validUrlQuery.PageNumber - 1) * validUrlQuery.PageSize)
                 .Take(validUrlQuery.PageSize);
             return Ok(pagedData);
         }

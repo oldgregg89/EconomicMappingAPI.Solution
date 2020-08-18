@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EconomicMappingAPI
+namespace EconomicMappingAPI.Models
 {
   public class State
   {
