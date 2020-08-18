@@ -17,15 +17,13 @@ namespace EconomicMappingAPI.Controllers
     public class StateController : ControllerBase
     {
         private EconomicMappingAPIContext _db;
-        private SqlConnection _connectionString;
 
-        public StateController(EconomicMappingAPIContext db, SqlConnection connectionString)
+        public StateController(EconomicMappingAPIContext db)
         {
             _db = db;
-            _connectionString = connectionString;
         }
         // GET api/values
-        [HttpGet]
+        [HttpGet("states")]
         public ActionResult<IEnumerable<State>> Get(string name, int gdp, string mainExport, string mainImport)
         {
             var query = _db.States.AsQueryable();
@@ -46,29 +44,15 @@ namespace EconomicMappingAPI.Controllers
 
         // GET api/values/5
         [HttpGet]
-        //public IActionResult GetContacts([FromQuery] UrlQuery urlQuery)
-        public IActionResult GetStates([FromQuery] UrlQuery urlQuery)
+        public async Task<IActionResult> GetAll([FromQuery] UrlQuery urlQuery)
         {
-            IEnumerable<State> state = null;
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                string sql = @"SELECT StateId, Name, GDP, MainExport, MainImport";
-
-                if (urlQuery.PageNumber.HasValue)
-                {
-                    sql += @" ORDER By State.StatePK
-                        OFFSET @PageSize * (@PageNumber -1) ROWS
-                        FETCH NEXT @PageSize ROWS ONLY";
-                }
-
-                state = connection.Query<State>(sql, urlQuery);
-                }
-                return Ok(state);
-            }
-            
+            var validUrlQuery = new UrlQuery(urlQuery,PageNumber, urlQuery.Pagesize);
+            var pageData = _db.States
+                .OrderBy(thing => thing.StateId)
+                .Skip((validUrlQuery.PageNumber -1) * validUrlQuery.PageSize)
+                .Take(validUrlQuery.PageSize);
+            return Ok(pagedData);
+        }
         
 
         // POST api/values
