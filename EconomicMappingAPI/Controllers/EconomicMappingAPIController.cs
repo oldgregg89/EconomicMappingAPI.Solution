@@ -20,9 +20,22 @@ namespace EconomicMappingAPI.Controllers
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<State>> Get()
+        public ActionResult<IEnumerable<State>> Get(string name, int gdp, string mainExport, string mainImport)
         {
-            return _db.States.ToList();
+            var query = _db.States.AsQueryable();
+            if (name != null)
+            {
+                query = query.Where(entry => entry.Name == name);
+            }
+            if (mainExport != null)
+            {
+                query = query.Where(entry => entry.MainExport == mainExport);
+            }
+            if (mainImport != null)
+            {
+                query = query.Where(entry => entry.MainImport == mainImport);
+            }
+            return query.ToList();
         }
 
         // GET api/values/5
