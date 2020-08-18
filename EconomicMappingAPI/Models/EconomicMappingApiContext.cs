@@ -43,7 +43,7 @@ namespace EconomicMappingAPI.Models
         new State {StateId = 27, Name= "Mississippi", GDP=4, MainExport= "Muddy Water", MainImport= "Cotton"},
         new State {StateId = 28, Name= "Missouri", GDP=67, MainExport= "Fiscal Disaster", MainImport= "Books"},
         new State {StateId = 29, Name= "Montana", GDP=5, MainExport= "Grizzlies", MainImport= "Glaciers"},
-        new State {StateId = 30, Name= string, GDP=num, MainExport= string, MainImport= string},
+        new State {StateId = 30, Name= string, GDP=6, MainExport= string, MainImport= string},
         new State {StateId = 31, Name= string, GDP=num, MainExport= string, MainImport= string},
         new State {StateId = 32, Name= string, GDP=num, MainExport= string, MainImport= string},
         new State {StateId = 33, Name= string, GDP=num, MainExport= string, MainImport= string},
