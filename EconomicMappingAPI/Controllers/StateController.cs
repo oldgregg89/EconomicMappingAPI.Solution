@@ -10,11 +10,11 @@ namespace EconomicMappingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EconomicMappingAPIController : ControllerBase
+    public class StateController : ControllerBase
     {
         private EconomicMappingAPIContext _db;
 
-        public EconomicMappingAPIController(EconomicMappingAPIContext db)
+        public StateController(EconomicMappingAPIContext db)
         {
         _db = db;
         }
