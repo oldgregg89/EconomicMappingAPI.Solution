@@ -7,7 +7,7 @@
 #### A practice in creating APIs within C# & .Net through the mapping of economic outputs for each state._ , 2020 ver 1.0_
 
 #### By _Ian Gregg & Kyle Hubbard & Ben Russell_
-[]()
+[Economic-API](https://github.com/oldgregg89/EconomicMappingAPI.Solution)
 
 ## Description
 
@@ -66,7 +66,7 @@ Kyle Hubbard <kyle.james.hubbard@gmail.com>_
 
 ## Technologies Used
 
-_The Technologies used in the making of this software was Chrome browser, Visual Studio editor, and Mac, C#, .Net, Authentication with Identity_
+_The Technologies used in the making of this software was Chrome browser, Visual Studio editor, and Mac, C#, .Net, Authentication with Identity, MySQL, Swagger for Documentation_
 
 ### License
 
