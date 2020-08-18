@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EconomicMappingAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Dapper;
+using MySqlConnector;
+using Microsoft.SqlServer;
+using System.Data.SqlClient;
 
 namespace EconomicMappingAPI.Controllers
 {
@@ -13,10 +17,12 @@ namespace EconomicMappingAPI.Controllers
     public class StateController : ControllerBase
     {
         private EconomicMappingAPIContext _db;
+        private SqlConnection _connectionString;
 
-        public StateController(EconomicMappingAPIContext db)
+        public StateController(EconomicMappingAPIContext db, SqlConnection connectionString)
         {
-        _db = db;
+            _db = db;
+            _connectionString = connectionString;
         }
         // GET api/values
         [HttpGet]
@@ -58,9 +64,9 @@ namespace EconomicMappingAPI.Controllers
                         FETCH NEXT @PageSize ROWS ONLY";
                 }
 
-                state = state.Query<State>(sql, urlQuery);
+                state = connection.Query<State>(sql, urlQuery);
                 }
-                return Ok(States);
+                return Ok(state);
             }
             
         
