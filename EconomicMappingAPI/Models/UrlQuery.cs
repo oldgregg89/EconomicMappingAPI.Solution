@@ -4,25 +4,18 @@ namespace EconomicMappingAPI.Models
 { 
     public class UrlQuery
     {
-        private const int maxPageSize = 20;
-        public int _PageNumber { get; set; }
-        public int _PageSize { get; set; }
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+        public UrlQuery()
+        {
+            this.PageNumber = 1;
+            this.PageSize = 10;
+        }
+
         public UrlQuery(int pageNumber, int pageSize)
         {
-            _PageNumber = pageNumber;
-            _PageSize = pageSize;
-        }
-        private int _pageSize = 10;
-        public int PageSize
-        {
-            get
-            {
-                return _pageSize;
-            }
-            set
-            {
-                _pageSize = (value < maxPageSize) ? value : maxPageSize;
-            }
+            this.PageNumber = pageNumber < 1 ? 1 : pageNumber;
+            this.PageSize = pageSize > 10 ? 10 : pageSize;
         }
     }
 }
