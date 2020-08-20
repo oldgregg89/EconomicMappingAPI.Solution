@@ -10,31 +10,32 @@ namespace EconomicMappingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StateController : ControllerBase
+    public class StatesController : ControllerBase
     {
         private EconomicMappingAPIContext _db;
 
-        public StateController(EconomicMappingAPIContext db)
+        public StatesController(EconomicMappingAPIContext db)
         {
             _db = db;
         }
-        // GET api/values
+        // GET api/states
+        // , int gdp, string mainExport, string mainImport
         [HttpGet("states")]
-        public ActionResult<IEnumerable<State>> Get(string name, int gdp, string mainExport, string mainImport)
+        public ActionResult<IEnumerable<State>> Get(string name)
         {
             var query = _db.States.AsQueryable();
             if (name != null)
             {
                 query = query.Where(entry => entry.Name == name);
             }
-            if (mainExport != null)
-            {
-                query = query.Where(entry => entry.MainExport == mainExport);
-            }
-            if (mainImport != null)
-            {
-                query = query.Where(entry => entry.MainImport == mainImport);
-            }
+            // if (mainExport != null)
+            // {
+            //     query = query.Where(entry => entry.MainExport == mainExport);
+            // }
+            // if (mainImport != null)
+            // {
+            //     query = query.Where(entry => entry.MainImport == mainImport);
+            // }
             return query.ToList();
         }
 
@@ -48,6 +49,13 @@ namespace EconomicMappingAPI.Controllers
                 .Skip((validUrlQuery.PageNumber - 1) * validUrlQuery.PageSize)
                 .Take(validUrlQuery.PageSize);
             return Ok(pagedData);
+        }
+        
+        // GET 
+        [HttpGet("{id}")]        
+        public ActionResult<State> GetDetails(int id)
+        {
+            return _db.States.FirstOrDefault(c => c.StateId == id);
         }
         
 

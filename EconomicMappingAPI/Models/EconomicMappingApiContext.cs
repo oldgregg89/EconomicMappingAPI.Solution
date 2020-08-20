@@ -16,7 +16,7 @@ namespace EconomicMappingAPI.Models
       .HasData(
         new State { StateId = 1, Name= "California", GDP= 2, MainExport= "coffee", MainImport= "avocodos" },
         new State { StateId = 2, Name= "Texas", GDP= 3, MainExport= "Cowboys", MainImport= "Capitalism"},
-        new State {StateId = 3, Name= "Flordia", GDP=23, MainExport= "Spring Break", MainImport= "Freshmen"},
+        new State {StateId = 3, Name= "Florida", GDP=23, MainExport= "Spring Break", MainImport= "Freshmen"},
         new State {StateId = 4, Name= "Wisconsin", GDP=2, MainExport= "COWS", MainImport= "Nothing"},
         new State {StateId = 5, Name= "Oregon", GDP=23542, MainExport= "Wine", MainImport= "California"},
         new State {StateId = 6, Name= "Alabama", GDP=1, MainExport= "Moonshine", MainImport= "The bible"},
